@@ -38,3 +38,9 @@ fun rememberSystemWindowType(): (measure: Measure) -> WindowType {
         }
     }
 }
+
+@Composable
+fun rememberWindowSize(measure: Measure): WindowType {
+    val systemWindowSize = rememberSystemWindowType()
+    return systemWindowSize(measure)
+}
