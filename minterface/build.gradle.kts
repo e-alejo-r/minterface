@@ -52,3 +52,19 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "edg.android.minterface"
+                artifactId = "minterface"
+                version = "1.0.0"
+            }
+        }
+        repositories {
+            mavenLocal()
+        }
+    }
+}
