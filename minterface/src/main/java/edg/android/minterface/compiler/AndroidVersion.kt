@@ -1,4 +1,4 @@
-package edg.android.minterface.version
+package edg.android.minterface.compiler
 
 import android.os.Build
 
@@ -23,6 +23,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 34
+         *
          * Checks if the current Android version is 14 (Upside Down Cake) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 14.
@@ -33,6 +35,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 33
+         *
          * Checks if the current Android version is 13 (Tiramisu) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 13.
@@ -43,6 +47,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 32
+         *
          * Checks if the current Android version is 12L (S_V2) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 12L.
@@ -53,6 +59,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 31
+         *
          * Checks if the current Android version is 12 (S) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 12.
@@ -63,6 +71,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 30
+         *
          * Checks if the current Android version is 11 (R) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 11.
@@ -73,6 +83,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 29
+         *
          * Checks if the current Android version is 10 (Q) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 10.
@@ -83,6 +95,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 28
+         *
          * Checks if the current Android version is 9 (P) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 9.
@@ -93,6 +107,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 27
+         *
          * Checks if the current Android version is 8.1 (O_MR1) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 8.1.
@@ -103,6 +119,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 26
+         *
          * Checks if the current Android version is 8 (O) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 8.
@@ -113,6 +131,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 25
+         *
          * Checks if the current Android version is 7.1 (N_MR1) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 7.1.
@@ -123,6 +143,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 24
+         *
          * Checks if the current Android version is 7 (N) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 7.
@@ -133,6 +155,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 23
+         *
          * Checks if the current Android version is 6 (M) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 6.
@@ -143,6 +167,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 22
+         *
          * Checks if the current Android version is 5.1 (LOLLIPOP_MR1) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 5.1.
@@ -153,6 +179,8 @@ class AndroidVersion {
         }
 
         /**
+         * SDK: 21
+         *
          * Checks if the current Android version is 5 (LOLLIPOP) or higher.
          *
          * @param orHigher If true, checks if the current version is equal to or higher than 5.
