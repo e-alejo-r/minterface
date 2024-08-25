@@ -60,7 +60,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "edg.android.minterface"
                 artifactId = "minterface"
-                version = "1.3.0"
+                version = "1.4.0"
             }
         }
         repositories {
