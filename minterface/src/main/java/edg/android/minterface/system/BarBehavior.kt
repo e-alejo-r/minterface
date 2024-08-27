@@ -1,6 +1,6 @@
 package edg.android.minterface.system
 
-enum class ShowBar {
+enum class BarBehavior {
     SWIPE,
     TRANSIENT
 }
