@@ -1,13 +1,16 @@
 package edg.android.minterface.system
 
-import android.os.Bundle
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.unit.Dp
+import edg.android.minterface.rsize.WindowSize
 
-interface SystemBarController {
+interface SystemWindowController {
     var isStatusBarVisible: Boolean
+
     var isNavigationBarVisible: Boolean
+
     var isSystemBarsVisible: Boolean
         get() = isNavigationBarVisible && isStatusBarVisible
         set(value) {
@@ -15,14 +18,12 @@ interface SystemBarController {
             isNavigationBarVisible = value
         }
 
-    fun hide(barType: BarType)
-    fun show(barType: BarType)
-    fun setHiddenModeBehavior(barBehavior: BarBehavior)
-    fun listenVisibilityChanges(callback: (state: Boolean, type: BarType) -> Unit)
-    fun onSaveInstanceState(bundle: Bundle)
-    fun onRestoreInstanceState(bundle: Bundle)
+    fun listenVisibilityChanges(
+        onChangeVisibilityStatusBar: (isVisibility: Boolean) -> Unit,
+        onChangeVisibilityNavigationBar: (isVisibility: Boolean) -> Unit
+    )
 
-    var systemBarsBehavior: Int
+    var systemBarBehavior: BarBehavior
 
     fun setStatusBarColor(
         color: Color,
@@ -53,17 +54,40 @@ interface SystemBarController {
     }
 
     var statusBarDarkContentEnabled: Boolean
+
     var navigationBarDarkContentEnabled: Boolean
+
     var systemBarsDarkContentEnabled: Boolean
         get() = statusBarDarkContentEnabled && navigationBarDarkContentEnabled
         set(value) {
             statusBarDarkContentEnabled = value
             navigationBarDarkContentEnabled = value
         }
+
     var isNavigationBarContrastEnforced: Boolean
+
+    val hasDisplayCutout: Boolean
+
+    val getDisplayCutoutLeft: Dp
+
+    val getDisplayCutoutRight: Dp
+
+    val getDisplayCutoutTop: Dp
+
+    val getDisplayCutoutBottom: Dp
+
+    val isPortrait: Boolean
+
+    val isLandscape: Boolean
+
+    val getWindowWidth: WindowSize
+
+    val getWindowHeight: WindowSize
+
 }
 
 private val BlackScrim = Color(0f, 0f, 0f, 0.3f) // 30% opaque black
+
 private val BlackScrimmed: (Color) -> Color = { original ->
     BlackScrim.compositeOver(original)
 }

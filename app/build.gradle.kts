@@ -52,7 +52,7 @@ android {
 
 dependencies {
 
-    //implementation("com.google.accompanist:accompanist-systemuicontroller:0.19.0")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.19.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

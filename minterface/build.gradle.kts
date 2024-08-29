@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
     id("maven-publish")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -11,7 +12,7 @@ android {
     compileSdk = libs.versions.compileSdk.get().toInt()         //compileSdk = 34
 
     defaultConfig {
-        minSdk = libs.versions.minSdk.get().toInt()             //minSdk = 21
+        minSdk = libs.versions.minSdk.get().toInt()             //minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -60,7 +61,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "edg.android.minterface"
                 artifactId = "minterface"
-                version = "1.4.0"
+                version = "1.5.0"
             }
         }
         repositories {
