@@ -55,6 +55,16 @@ internal class AndroidSystemWindowController(
             }
         }
 
+    override var isSystemBarsVisible: Boolean
+        get() = windowInsetsCompat?.isVisible(WindowInsetsCompat.Type.systemBars()) == true
+        set(value) {
+            if (value) {
+                windowInsetsControllerCompat.show(WindowInsetsCompat.Type.systemBars())
+            } else {
+                windowInsetsControllerCompat.hide(WindowInsetsCompat.Type.systemBars())
+            }
+        }
+
     override fun listenVisibilityChanges(
         onChangeVisibilityStatusBar: (Boolean) -> Unit,
         onChangeVisibilityNavigationBar: (Boolean) -> Unit

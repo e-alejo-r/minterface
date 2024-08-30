@@ -77,89 +77,95 @@ fun Greeting(swc: SystemWindowController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            /*.statusBarsPadding()
-            .navigationBarsPadding()*/
-            .windowInsetsPadding(WindowInsets.systemBars)
-            .imePadding()
+            .background(color = MaterialTheme.colorScheme.surface)
     ) {
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.surface)
-                .padding(
-                    start = if (swc.isLandscape and (swc.getDisplayCutoutLeft > 0.dp)) swc.getDisplayCutoutLeft else 16.dp,
-                    end = if (swc.isLandscape and (swc.getDisplayCutoutRight > 0.dp)) swc.getDisplayCutoutRight else 16.dp,
-                )
-                .verticalScroll(rememberScrollState())
+                /*.statusBarsPadding()
+                .navigationBarsPadding()*/
+                .windowInsetsPadding(WindowInsets.systemBars)
+                .imePadding()
         ) {
-            Text(
-                text = "Status Bar: ${if (resultStatusBar) "true" else "false"}",
-                color = MaterialTheme.colorScheme.onSurface,
-                fontWeight = MaterialTheme.typography.bodyLarge.fontWeight,
-                fontSize = MaterialTheme.typography.bodyLarge.fontSize
-            )
-            Text(
-                text = "Navigation Bar: ${if (resultNavigationBar) "true" else "false"}",
-                color = MaterialTheme.colorScheme.onSurface,
-                fontWeight = MaterialTheme.typography.bodyLarge.fontWeight,
-                fontSize = MaterialTheme.typography.bodyLarge.fontSize
-            )
-            Button(
-                onClick = {
-                    swc.isStatusBarVisible = true
-                },
-                modifier = Modifier.fillMaxWidth()
-
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(color = MaterialTheme.colorScheme.surface)
+                    .padding(
+                        start = if (swc.isLandscape and (swc.getDisplayCutoutLeft > 0.dp)) swc.getDisplayCutoutLeft else 16.dp,
+                        end = if (swc.isLandscape and (swc.getDisplayCutoutRight > 0.dp)) swc.getDisplayCutoutRight else 16.dp,
+                    )
+                    .verticalScroll(rememberScrollState())
             ) {
-                Text(text = "SHOW STATUS BAR")
-            }
-            OutlinedButton(
-                onClick = {
-                    swc.isStatusBarVisible = false
-                },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(text = "HIDE STATUS BAR")
-            }
-            Button(
-                onClick = {
-                    swc.isNavigationBarVisible = true
-                },
-                modifier = Modifier.fillMaxWidth()
+                Text(
+                    text = "Status Bar: ${if (resultStatusBar) "true" else "false"}",
+                    color = MaterialTheme.colorScheme.onSurface,
+                    fontWeight = MaterialTheme.typography.bodyLarge.fontWeight,
+                    fontSize = MaterialTheme.typography.bodyLarge.fontSize
+                )
+                Text(
+                    text = "Navigation Bar: ${if (resultNavigationBar) "true" else "false"}",
+                    color = MaterialTheme.colorScheme.onSurface,
+                    fontWeight = MaterialTheme.typography.bodyLarge.fontWeight,
+                    fontSize = MaterialTheme.typography.bodyLarge.fontSize
+                )
+                Button(
+                    onClick = {
+                        swc.isStatusBarVisible = true
+                    },
+                    modifier = Modifier.fillMaxWidth()
 
-            ) {
-                Text(text = "SHOW NAVIGATION BAR")
-            }
-            OutlinedButton(
-                onClick = {
-                    swc.isNavigationBarVisible = false
-                },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(text = "HIDE NAVIGATION BAR")
-            }
+                ) {
+                    Text(text = "SHOW STATUS BAR")
+                }
+                OutlinedButton(
+                    onClick = {
+                        swc.isStatusBarVisible = false
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(text = "HIDE STATUS BAR")
+                }
+                Button(
+                    onClick = {
+                        swc.isNavigationBarVisible = true
+                    },
+                    modifier = Modifier.fillMaxWidth()
 
-            var text by remember {
-                mutableStateOf("")
-            }
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                label = { Text("Input") },
-                modifier = Modifier.fillMaxWidth()
-            )
-
-            when (swc.getWindowWidth) {
-                WindowSize.COMPACT -> {
-                    Text(text = "COMPACT")
+                ) {
+                    Text(text = "SHOW NAVIGATION BAR")
+                }
+                OutlinedButton(
+                    onClick = {
+                        swc.isNavigationBarVisible = false
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(text = "HIDE NAVIGATION BAR")
                 }
 
-                WindowSize.MEDIUM -> {
-                    Text(text = "MEDIUM")
+                var text by remember {
+                    mutableStateOf("")
                 }
+                TextField(
+                    value = text,
+                    onValueChange = { text = it },
+                    label = { Text("Input") },
+                    modifier = Modifier.fillMaxWidth()
+                )
 
-                WindowSize.EXPANDED -> {
-                    Text(text = "EXPANDED")
+                when (swc.getWindowWidth) {
+                    WindowSize.COMPACT -> {
+                        Text(text = "COMPACT")
+                    }
+
+                    WindowSize.MEDIUM -> {
+                        Text(text = "MEDIUM")
+                    }
+
+                    WindowSize.EXPANDED -> {
+                        Text(text = "EXPANDED")
+                    }
                 }
             }
         }

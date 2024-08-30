@@ -12,11 +12,11 @@ interface SystemWindowController {
     var isNavigationBarVisible: Boolean
 
     var isSystemBarsVisible: Boolean
-        get() = isNavigationBarVisible && isStatusBarVisible
+        /*get() = isNavigationBarVisible && isStatusBarVisible
         set(value) {
             isStatusBarVisible = value
             isNavigationBarVisible = value
-        }
+        }*/
 
     fun listenVisibilityChanges(
         onChangeVisibilityStatusBar: (isVisibility: Boolean) -> Unit,
