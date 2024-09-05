@@ -246,10 +246,41 @@ internal class AndroidSystemController(
             else -> WindowSize.MEDIUM
         }
 
-    override var headerBackground: Color = Color.Transparent
-    override var sideBackground: Color = Color.Transparent
-    override var bodyBackground: Color = Color.Transparent
-    override var drawerBackground: Color = Color.Transparent
-    override var footerBackground: Color = Color.Transparent
-    override var surfaceBackground: Color = Color.Transparent
+    private var _headerBackground: Color = Color.Transparent
+    private var _sideBackground: Color = Color.Transparent
+    private var _bodyBackground: Color = Color.Transparent
+    private var _drawerBackground: Color = Color.Transparent
+    private var _footerBackground: Color = Color.Transparent
+    private var _surfaceBackground: Color = Color.Transparent
+
+    override var headerBackground: Color
+        get() = _headerBackground
+        set(value) {
+            _headerBackground = value
+        }
+    override var sideBackground: Color
+        get() = _sideBackground
+        set(value) {
+            _sideBackground = value
+        }
+    override var bodyBackground: Color
+        get() = _bodyBackground
+        set(value) {
+            _bodyBackground = value
+        }
+    override var drawerBackground: Color
+        get() = _drawerBackground
+        set(value) {
+            _drawerBackground = value
+        }
+    override var footerBackground: Color
+        get() = _footerBackground
+        set(value) {
+            _footerBackground = value
+        }
+    override var surfaceBackground: Color
+        get() = _surfaceBackground
+        set(value) {
+            _surfaceBackground = value
+        }
 }

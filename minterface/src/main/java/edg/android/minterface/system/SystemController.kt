@@ -1,5 +1,6 @@
 package edg.android.minterface.system
 
+import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.graphics.luminance
@@ -81,11 +82,17 @@ interface SystemController {
 
     val getWindowHeight: WindowSize
 
+    @Stable
     var headerBackground: Color
+    @Stable
     var sideBackground: Color
+    @Stable
     var bodyBackground: Color
+    @Stable
     var drawerBackground: Color
+    @Stable
     var footerBackground: Color
+    @Stable
     var surfaceBackground: Color
 
 }
