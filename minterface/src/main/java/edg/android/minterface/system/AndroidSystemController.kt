@@ -18,10 +18,10 @@ import androidx.window.core.layout.WindowSizeClass
 import androidx.window.core.layout.WindowWidthSizeClass
 import edg.android.minterface.rsize.WindowSize
 
-internal class AndroidSystemWindowController(
+internal class AndroidSystemController(
     private val window: Window,
     private val windowSizeClass: WindowSizeClass
-) : SystemWindowController {
+) : SystemController {
     private val view = window.decorView
     private val windowInsetsControllerCompat = WindowCompat.getInsetsController(window, view)
     private val windowInsetsCompat = ViewCompat.getRootWindowInsets(view)
@@ -65,7 +65,7 @@ internal class AndroidSystemWindowController(
             }
         }
 
-    override fun listenVisibilityChanges(
+    override fun listenVisibilityChangesOfBars(
         onChangeVisibilityStatusBar: (Boolean) -> Unit,
         onChangeVisibilityNavigationBar: (Boolean) -> Unit
     ) {
@@ -245,4 +245,11 @@ internal class AndroidSystemWindowController(
             WindowHeightSizeClass.EXPANDED -> WindowSize.EXPANDED
             else -> WindowSize.MEDIUM
         }
+
+    override var headerBackground: Color = Color.Transparent
+    override var sideBackground: Color = Color.Transparent
+    override var bodyBackground: Color = Color.Transparent
+    override var drawerBackground: Color = Color.Transparent
+    override var footerBackground: Color = Color.Transparent
+    override var surfaceBackground: Color = Color.Transparent
 }

@@ -30,8 +30,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import edg.android.minterface.rsize.WindowSize
 import edg.android.minterface.system.BarBehavior
-import edg.android.minterface.system.SystemWindowController
-import edg.android.minterface.system.rememberSystemWindowController
+import edg.android.minterface.system.SystemController
+import edg.android.minterface.system.rememberSystemController
 import edg.android.minterface.ui.theme.MinterfaceTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MinterfaceTheme {
-                val systemBarsController = rememberSystemWindowController(window)
+                val systemBarsController = rememberSystemController(window)
                 Greeting(swc = systemBarsController)
             }
         }
@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(swc: SystemWindowController) {
+fun Greeting(swc: SystemController) {
     swc.setStatusBarColor(
         color = MaterialTheme.colorScheme.surfaceContainerHighest,
     )
@@ -65,7 +65,7 @@ fun Greeting(swc: SystemWindowController) {
     var resultNavigationBar by remember {
         mutableStateOf(swc.isNavigationBarVisible)
     }
-    swc.listenVisibilityChanges(
+    swc.listenVisibilityChangesOfBars(
         onChangeVisibilityStatusBar = { isVisible ->
             resultStatusBar = isVisible
         },

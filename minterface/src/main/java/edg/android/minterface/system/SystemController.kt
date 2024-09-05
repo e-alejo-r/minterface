@@ -6,30 +6,28 @@ import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.unit.Dp
 import edg.android.minterface.rsize.WindowSize
 
-interface SystemWindowController {
+interface SystemController {
     var isStatusBarVisible: Boolean
 
-    var isNavigationBarVisible: Boolean
-
-    var isSystemBarsVisible: Boolean
-        /*get() = isNavigationBarVisible && isStatusBarVisible
-        set(value) {
-            isStatusBarVisible = value
-            isNavigationBarVisible = value
-        }*/
-
-    fun listenVisibilityChanges(
-        onChangeVisibilityStatusBar: (isVisibility: Boolean) -> Unit,
-        onChangeVisibilityNavigationBar: (isVisibility: Boolean) -> Unit
-    )
-
-    var systemBarBehavior: BarBehavior
+    var statusBarDarkContentEnabled: Boolean
 
     fun setStatusBarColor(
         color: Color,
         darkIcons: Boolean = color.luminance() > 0.5f,
         transformColorForLightContent: (Color) -> Color = BlackScrimmed
     )
+
+    var isNavigationBarVisible: Boolean
+
+    var isSystemBarsVisible: Boolean
+
+    fun listenVisibilityChangesOfBars(
+        onChangeVisibilityStatusBar: (isVisibility: Boolean) -> Unit,
+        onChangeVisibilityNavigationBar: (isVisibility: Boolean) -> Unit
+    )
+
+    var systemBarBehavior: BarBehavior
+
 
     fun setNavigationBarColor(
         color: Color,
@@ -53,7 +51,6 @@ interface SystemWindowController {
         )
     }
 
-    var statusBarDarkContentEnabled: Boolean
 
     var navigationBarDarkContentEnabled: Boolean
 
@@ -83,6 +80,13 @@ interface SystemWindowController {
     val getWindowWidth: WindowSize
 
     val getWindowHeight: WindowSize
+
+    var headerBackground: Color
+    var sideBackground: Color
+    var bodyBackground: Color
+    var drawerBackground: Color
+    var footerBackground: Color
+    var surfaceBackground: Color
 
 }
 

@@ -16,9 +16,9 @@ internal fun getWindow(): Window {
 }
 
 @Composable
-fun rememberSystemWindowController(window: Window = getWindow()): SystemWindowController {
+fun rememberSystemController(window: Window = getWindow()): SystemController {
     val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
     return remember(window, windowSizeClass) {
-        AndroidSystemWindowController(window, windowSizeClass)
+        AndroidSystemController(window, windowSizeClass)
     }
 }
